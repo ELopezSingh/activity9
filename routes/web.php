@@ -3,10 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+// Vista para usuarios NO registrados (Landing Page)
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('landingpage');
+})->name('landingpage');
 
+// Vista protegida solo para usuarios registrados (Requisito 4)
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
